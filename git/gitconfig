@@ -23,6 +23,7 @@
 
   # checkout
   co = checkout                     # checkout
+  start = checkout -b
 
   # diff
   df = diff                          # diff unstaged changes
