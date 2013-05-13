@@ -26,9 +26,6 @@ done
 # Choose prompt theme
 source "$DOTFILES/bash/prompt_minimalist"
 
-# This initializes Rbenv
-eval "$(rbenv init -)"
-
 bind -f $DOTFILES/bash/bash_bindings
 
 # check the window size after each command and, if necessary,
@@ -58,14 +55,3 @@ done
 
 # Autocomplete for 'g' as well
 complete -o default -o nospace -F _git g
-
-# Customize to your needs...
-
-# {{{
-# Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
-# }}}
