@@ -831,7 +831,7 @@ let my_ctrlp_ffind_command = "ffind --semi-restricted --dir %s --type e -B -f"
 " let g:ctrlp_user_command = ['.git/', my_ctrlp_git_command]
 let g:ctrlp_user_command = ['.git/', my_ctrlp_ffind_command, my_ctrlp_ffind_command]
 
-nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <c-p> :CtrlPTag<cr>
 
 " }}}
 " Fugitive {{{
@@ -870,8 +870,7 @@ let g:gundo_preview_statusline = "Gundo Preview"
 " }}}
 " NERD Tree {{{
 
-noremap  <leader>n :NERDTreeToggle<cr>
-inoremap <leader>n <esc>:NERDTreeToggle<cr>
+map <C-n> :NERDTreeToggle<CR>
 
 " Open the project tree and expose current file in the nerdtree with ,N
 nnoremap <Leader>N :NERDTreeFind<CR>
