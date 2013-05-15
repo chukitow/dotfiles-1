@@ -12,8 +12,11 @@ $HOME/bin:\
 /usr/local/share/npm/bin:\
 $HOME/.rbenv/bin:\
 $(brew --prefix coreutils)/libexec/gnubin:\
+/usr/local/heroku/bin:/usr/local/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/tonatiuh/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/Users/tonatiuh/.gh-dotfiles/bin \
 $PATH:\
 "&>/dev/null
+
+source /Users/tonatiuh/.rvm/scripts/rvm
 
 # Load files
 files=(bash_functions bash_aliases bash_exports)
