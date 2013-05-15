@@ -36,7 +36,7 @@
   changelog = log --pretty=format:\" * %s\"
 
   # push
-  ps = push                         # push
+  ps = push origin HEAD                        # push
 
   # rebase
   rc = rebase --continue            # continue rebase
