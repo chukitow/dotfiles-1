@@ -1,7 +1,53 @@
-" .vimrc
-" Author: Eduardo Ruiz <eduarbo@gmail.com>
-" Source: https://github.com/eduarbo/dotfiles/tree/master/vim
-"
+" Fork by Tonatiuh Nunez <tonatiuhnb@gmail.com> (https://github.com/tonatiuh/dotfiles-1/tree/master/vim)
+" This is my fork of the original repo from Eduardo Ruiz <eduarbo@gmail.com> (https://github.com/eduarbo/dotfiles/tree/master/vim)
+
+" Plugins
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/RemoveFile.vim'
+Bundle 'Valloric/YouCompleteMe'
+
+" Remove scrollbars
+set guioptions+=LlRrb
+set guioptions-=LlRrb
+
+" Cursor
+autocmd InsertEnter,InsertLeave * set cul!
+
+" Remove menu
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+
+" Nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
+augroup ps_nerdtree
+    au!
+
+    au Filetype nerdtree setlocal nolist
+    " au Filetype nerdtree nnoremap <buffer> K :q<cr>
+augroup END
+
+let NERDTreeIgnore = ['\~$', '.*\.pyc$']
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDChristmasTree = 1
+let NERDTreeChDirMode = 2
+let NERDTreeMapJumpFirstChild = 'gK'
+
+ " Ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
 " Preamble ---------------------------------------------------------------- {{{
 
 filetype off
@@ -12,6 +58,7 @@ set nocompatible
 inoremap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 
 " }}}
+"
 " Basic options ----------------------------------------------------------- {{{
 
 set encoding=utf-8
@@ -92,8 +139,8 @@ augroup line_return
 augroup END
 
 " }}}
-" Tabs, spaces, wrapping {{{
 
+" Tabs, spaces
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -102,13 +149,9 @@ set wrap
 set textwidth=80
 set formatoptions=qrn1
 
-" }}}
-" Leader {{{
-
+" Leader
 let mapleader = ","
 let maplocalleader = "\\"
-
-" }}}
 
 " Convenience mappings ---------------------------------------------------- {{{
 
