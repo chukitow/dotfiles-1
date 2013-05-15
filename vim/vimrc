@@ -1,6 +1,67 @@
 " Fork by Tonatiuh Nunez <tonatiuhnb@gmail.com> (https://github.com/tonatiuh/dotfiles-1/tree/master/vim)
 " This is my fork of the original repo from Eduardo Ruiz <eduarbo@gmail.com> (https://github.com/eduarbo/dotfiles/tree/master/vim)
 
+if has("gui_macvim") && has("gui_running")
+  set guifont=Monaco:h15
+  set t_Co=256
+end
+
+colorscheme jellybeans
+
+" Map semicolon to colon
+map ; :
+
+" Start of the line
+map 0 ^
+
+" jj instead of the scape key
+:imap jj <Esc>
+:imap jk <Esc> :w <Enter>
+
+" Tabs like chrome
+map <D-t> :tabnew<CR>
+map <D-w> :tabclose!<CR>
+
+" Insert New Line
+nnoremap <S-Enter> O<ESC> " awesome, inserts new line without going into
+
+" insert mode
+nnoremap <Enter> o<ESC>
+
+" T-comment
+nmap <leader>c :TComment<CR>
+xmap <leader>c :TComment<CR>
+
+" Map NERDTreeToggle to convenient key
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+" " NERDTree config
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.pyc$', '\.swp$', '\.egg-info$', '^dist$', '^build$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\~$']
+let NERDTreeShowBookmarks=0
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDChristmasTree = 1
+let NERDTreeChDirMode = 2
+let g:NERDTreeHijackNetrw=0
+
+" Wrap
+set wrap linebreak nolist
+set showbreak=»
+
+" Unhighlight the search
+nnoremap <silent> _ :nohl<CR>
+
+" resize current buffer by +/- 5
+nnoremap <C-left> :vertical resize -5<cr>
+nnoremap <C-down> :resize +5<cr>
+nnoremap <C-up> :resize -5<cr>
+nnoremap <C-right> :vertical resize +5<cr>
+
+" scss files read as css
+au BufNewFile,BufRead *.scss setlocal filetype=sass
+
 " Plugins
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
