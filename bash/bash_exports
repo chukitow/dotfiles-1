@@ -25,7 +25,4 @@ export VISUAL=$EDITOR
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-export LESS="-R"
-[[ -z $DISPLAY ]] && export DISPLAY=":0.0"
-
 export TERM='xterm-256color'
