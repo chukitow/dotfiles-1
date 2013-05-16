@@ -70,6 +70,8 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/RemoveFile.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'tpope/vim-endwise'
+Bundle 'jiangmiao/auto-pairs.git'
 
 " Remove scrollbars
 set guioptions+=LlRrb
@@ -107,7 +109,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 " Preamble ---------------------------------------------------------------- {{{
 
@@ -255,10 +256,6 @@ set sidescroll=1
 set sidescrolloff=10
 
 set virtualedit+=block
-
-" Keep search matches in the middle of the window.
-nnoremap n nzzzv
-nnoremap N Nzzzv
 
 " Directional Keys {{{
 
