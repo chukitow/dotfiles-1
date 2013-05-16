@@ -1,6 +1,17 @@
 " Fork by Tonatiuh Nunez <tonatiuhnb@gmail.com> (https://github.com/tonatiuh/dotfiles-1/tree/master/vim)
 " This is my fork of the original repo from Eduardo Ruiz <eduarbo@gmail.com> (https://github.com/eduarbo/dotfiles/tree/master/vim)
 
+" Plugins
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/RemoveFile.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'jiangmiao/auto-pairs.git'
+Bundle 'Shougo/neocomplcache.vim'
+
 if has("gui_macvim") && has("gui_running")
   set guifont=Monaco:h15
   set t_Co=256
@@ -61,17 +72,6 @@ nnoremap <C-right> :vertical resize +5<cr>
 
 " scss files read as css
 au BufNewFile,BufRead *.scss setlocal filetype=sass
-
-" Plugins
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/RemoveFile.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'tpope/vim-endwise'
-Bundle 'jiangmiao/auto-pairs.git'
 
 " Remove scrollbars
 set guioptions+=LlRrb
