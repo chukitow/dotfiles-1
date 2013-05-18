@@ -20,6 +20,8 @@ source /Users/tonatiuh/.rvm/scripts/rvm
 
 # Load files
 files=(bash_functions bash_aliases bash_exports)
+alias pr="pry-remote"
+alias irc="rails console"
 
 for file in ${files[@]}; do
   file="$DOTFILES/bash/$file"
