@@ -1,6 +1,12 @@
 " Fork by Tonatiuh Nunez <tonatiuhnb@gmail.com> (https://github.com/tonatiuh/dotfiles-1/tree/master/vim)
 " This is my fork of the original repo from Eduardo Ruiz <eduarbo@gmail.com> (https://github.com/eduarbo/dotfiles/tree/master/vim)
 
+" resize active split
+let &winheight = &lines * 8 / 10
+
+" do not save swap files
+set noswapfile
+
 " Plugins
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
