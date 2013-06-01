@@ -1,7 +1,7 @@
 #!/bin/bash
 DOTFILES="$HOME/.dotfiles"
-NAME="Eduardo Ruiz"
-EMAIL="eduarbo@gmail.com"
+NAME="Tonatiuh Nunez"
+EMAIL="tonatiuh@hotmail.es"
 
 cd ${DOTFILES}
 source ./lib/utils
@@ -71,7 +71,7 @@ else
   exit 1
 fi
 
-read -p "Are you Eduardo Ruiz (y/n) " -n 1
+read -p "Are you Tonatiuh Nunez (y/n) " -n 1
 
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then

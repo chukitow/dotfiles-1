@@ -1,4 +1,4 @@
-# H1 My dotfiles
+# My dotfiles
 > This is my folk of the dotfiles from Eduarbo (https://github.com/eduarbo), so thanks for sharing them man.
 > I wanted to keep it as simple, functional, and styled.
 
