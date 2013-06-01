@@ -12,7 +12,11 @@
   old = red bold
   new = green bold
 [alias]
+  softback = reset --soft HEAD^
   addp = add --patch           # stage commits chunk by chunk
+  f = fetch
+  mergecommit = merge --no-ff
+  depintegration = !git push origin integration && git push integration HEAD:master
 
   # branch
   br = branch -v                     # branch (verbose)
@@ -46,7 +50,7 @@
   r = remote -v                     # show remotes (verbose)
 
   # status
-  st = status --short                        # status
+  st = status -sb                        # status
 
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
