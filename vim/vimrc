@@ -1,5 +1,11 @@
 " Fork by Tonatiuh Nunez <tonatiuhnb@gmail.com> (https://github.com/tonatiuh/dotfiles-1/tree/master/vim)
 " This is my fork of the original repo from Eduardo Ruiz <eduarbo@gmail.com> (https://github.com/eduarbo/dotfiles/tree/master/vim)
+"
+" Basic
+filetype off
+call pathogen#infect()
+filetype plugin indent on
+set nocompatible
 
 " resize active split
 let &winheight = &lines * 8 / 10
@@ -11,15 +17,24 @@ set noswapfile
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/RemoveFile.vim'
-Bundle 'tpope/vim-endwise'
 Bundle 'jiangmiao/auto-pairs.git'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-endwise'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'vim-scripts/tComment'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'sjl/gundo.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'danro/rename.vim'
+Bundle 'grassdog/RemoveFile.vim'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'tpope/vim-surround'
 
 if has("gui_macvim") && has("gui_running")
-  set guifont=Monaco:h15
+  set guifont=Monaco:h14
   set t_Co=256
 end
 
@@ -49,10 +64,7 @@ nnoremap <Enter> o<ESC>
 nmap <leader>c :TComment<CR>
 xmap <leader>c :TComment<CR>
 
-" Map NERDTreeToggle to convenient key
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
-
-" " NERDTree config
+" NERDTree config
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.pyc$', '\.swp$', '\.egg-info$', '^dist$', '^build$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\~$']
@@ -62,6 +74,19 @@ let NERDTreeDirArrows = 1
 let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 let g:NERDTreeHijackNetrw=0
+
+map <C-n> :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_gui_startup = 0
+ 
+augroup ps_nerdtree
+  au!
+
+  au Filetype nerdtree setlocal nolist
+  au Filetype nerdtree nnoremap <buffer> K :q<cr>
+augroup END
+
+" Ignore files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " Wrap
 set wrap linebreak nolist
@@ -91,42 +116,11 @@ autocmd InsertEnter,InsertLeave * set cul!
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 
-" Nerdtree
-map <C-n> :NERDTreeToggle<CR>
-
-augroup ps_nerdtree
-    au!
-
-    au Filetype nerdtree setlocal nolist
-    " au Filetype nerdtree nnoremap <buffer> K :q<cr>
-augroup END
-
-let NERDTreeIgnore = ['\~$', '.*\.pyc$']
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDChristmasTree = 1
-let NERDTreeChDirMode = 2
-let NERDTreeMapJumpFirstChild = 'gK'
-
  " Ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-
-" Preamble ---------------------------------------------------------------- {{{
-
-filetype off
-call pathogen#infect()
-filetype plugin indent on
-set nocompatible
-
-inoremap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
-
-" }}}
-"
 " Basic options ----------------------------------------------------------- {{{
 
 set encoding=utf-8
@@ -167,18 +161,10 @@ set synmaxcol=800
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
 
-" Better Completion
-set complete=.,w,b,u,t
-set completeopt=longest,menuone,preview
-
 " Save when losing focus
 " au FocusLost * :silent! wall
 
-" Resize splits when the window is resized
-au VimResized * :wincmd =
-
 " }}}
-" cpoptions+=J, dammit {{{
 
 " Something occasionally removes this.  If I manage to find it I'm going to
 " comment out the line and replace all its characters with 'FUCK'.
@@ -227,26 +213,9 @@ let maplocalleader = "\\"
 noremap  <F1> :set invfullscreen<CR>
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 
-" Kill window
-nnoremap K :q<cr>
-
-" Front and center
-" Use :sus for the rare times I want to actually background Vim.
-nnoremap <c-z> zvzz
-vnoremap <c-z> <esc>zv`<ztgv
-
-" Tabs
-nnoremap <leader>( :tabprev<cr>
-nnoremap <leader>) :tabnext<cr>
-
-nnoremap ; :
-
 " Insert New Line
 nnoremap <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
 nnoremap <Enter> o<ESC>
-
-" HTML tag closing
-inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 
 " Searching and movement -------------------------------------------------- {{{
 
@@ -278,12 +247,8 @@ noremap <leader>h <C-w>s
 
 " Haml {{{
 
-augroup ft_css
-    au!
-
-    au BufRead,BufNewFile *.hamlc set ft=haml
-
-augroup END
+au!
+au BufRead,BufNewFile *.hamlc set ft=haml
 
 " }}}
 "
@@ -316,8 +281,6 @@ augroup ft_html
     au FileType html setlocal omnifunc=htmlcomplete#CompleteTags
     au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-    " Indent tag
-    au FileType html nnoremap <buffer> <localleader>= Vat=
 
     " Underscore tags
     au FileType html inoremap <buffer> <c-t> <%=<space><space>%><left><left><left>
@@ -363,7 +326,6 @@ augroup END
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
-    " GUI Vim
 
     if has("gui_macvim")
 
@@ -400,8 +362,3 @@ else
 endif
 
 " }}}
-
-" Extend .vimrc
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
