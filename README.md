@@ -31,6 +31,19 @@
 * Javascript
 * SASS
 
+# Git aliases
+    l -> log
+    ps -> push origin HEAD
+    f -> fetch
+    df -> diff
+    addp -> add --patch
+    dfc -> diff --cached
+    last -> diff HEAD^
+    softback -> reset --soft HEAD
+    mergecommit -> merge --no-ff
+    depintegration -> !git push origin integration && git push integration HEAD:master
+    st -> status -sb
+
 # Vim used theme
 > Jelly beans
 
@@ -39,5 +52,5 @@
 # Bash profile
 ![bash profile] (http://oi44.tinypic.com/2q20k84.jpg)
 
-# Git log config
+# Git log style
 ![git log] (http://oi44.tinypic.com/29xjkut.jpg)
