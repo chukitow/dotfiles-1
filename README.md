@@ -24,7 +24,7 @@
 * :Rename <new_file_name> command allows you to rename the current file
 * :Remove command allows you to delete the current file
 
-# Files support
+# File support
 * HAML
 * Ruby
 * Coffeescript
