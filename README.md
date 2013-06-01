@@ -12,6 +12,7 @@
 * User profile shows the current branch (when in a git repo)
 
 # Vim overall features
+* Autocomplete
 * Look up for files by typing <ctrl+p>
 * Open Nerdtree by typing <ctrl+n>
 * Nerdtree remains consistent in all the tabs
