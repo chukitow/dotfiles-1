@@ -1,11 +1,11 @@
 # My dotfiles
 > This is my folk of the dotfiles from Eduarbo (https://github.com/eduarbo), so thanks for sharing them man.
-> I wanted to keep it as simple, functional, and styled.
+> I wanted to keep it simple, functional, and styled.
 
 # Install
     git clone https://github.com/tonatiuh/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && source bin/dotfiles
 
-# Features
+# Bash features
 * Up/ down arrow partial search in history
 * Bash Completion
 * Styled git log
