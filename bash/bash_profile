@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
+#test
 
 # Bash completion (installed via Homebrew; source after `brew` is added to PATH)
 [ -r "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
@@ -11,9 +12,9 @@ $HOME/bin:\
 /usr/local/share/python:\
 /usr/local/share/npm/bin:\
 $HOME/.rbenv/bin:\
-$(brew --prefix coreutils)/libexec/gnubin:\
 /usr/local/heroku/bin:/usr/local/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/tonatiuh/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/Users/tonatiuh/.gh-dotfiles/bin \
 $PATH:\
+/Users/tonatiuh/.rvm/rubies/ruby-1.9.3-p125-perf/bin/ruby:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p125-perf/bin:\
 "&>/dev/null
 
 source /Users/tonatiuh/.rvm/scripts/rvm
@@ -60,3 +61,7 @@ done
 
 # Autocomplete for 'g' as well
 complete -o default -o nospace -F _git g
+
+if [ -f ~/.git-completion.bash  ]; then
+  . ~/.git-completion.bash
+fi

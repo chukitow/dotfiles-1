@@ -45,7 +45,7 @@ alias -- -='cd -'
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/Tangosource"
+alias j="jump"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
