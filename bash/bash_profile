@@ -50,7 +50,7 @@ shopt -s cdspell
 # no duplicates in bash history and ignore same sucessive entries. 
 set match-hidden-files off
 set page-completions off
-set completion-query-items 350
+# set completion-query-items 350
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
