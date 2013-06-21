@@ -32,7 +32,7 @@
   # diff
   df = diff                          # diff unstaged changes
   dfc = diff --cached                # diff staged changes
-  last = diff HEAD^                 # diff last committed change
+  last = show --summary                 # diff last committed change
 
   # log
   l = log --pretty=format:'%Cred%h%Creset %Cgreen(%cr) %C(bold blue)%an%Creset %s %C(yellow)%d' --abbrev-commit
@@ -57,6 +57,7 @@
 [merge]
   summary = true
   verbosity = 1
+	tool = opendiff
 [apply]
   whitespace = nowarn
 [branch]
@@ -82,3 +83,5 @@
 [user]
 	name = Tonatiuh Nunez
 	email = tonatiuhn@hotmail.es
+[mergetool]
+	keepBackup = false

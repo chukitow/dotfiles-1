@@ -32,13 +32,15 @@ Bundle 'danro/rename.vim'
 Bundle 'grassdog/RemoveFile.vim'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
+Bundle 'plasticboy/vim-markdown'
 
 if has("gui_macvim") && has("gui_running")
-  set guifont=Monaco:h14
+  set guifont=DejaVu\ Sans\ Mono:h14
   set t_Co=256
 end
 
 colorscheme jellybeans
+set cursorline
 
 " Map semicolon to colon
 map ; :
