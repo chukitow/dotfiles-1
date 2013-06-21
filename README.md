@@ -13,17 +13,19 @@
 
 # Vim overall features
 * Autocomplete
-* Look up for files by typing <ctrl+p>
-* Open Nerdtree by typing <ctrl+n>
+* Look up for files by typing ctrl+p
+* Open Nerdtree by typing ctrl+n
 * Nerdtree remains consistent in all the tabs
 * Support for auto close quotes, parenthesis, curlybraces, etc
-* Comment code lines by typing <gcc>
+* Comment code lines by typing gcc
 * Pressing the semi-colon key is recognized as colon (is faster to type)
-* Two times j key <jj> is goes from "insert mode" to "visual mode"
-* <jk> goes from "insert mode" to "visual mode" and also saves the file
+* Two times j key jj is goes from "insert mode" to "visual mode"
+* jk goes from "insert mode" to "visual mode" and also saves the file
 * Tabs like chrome (ctrl+t new tab, ctrl+w closes tab)
-* :Rename <new_file_name> command allows you to rename the current file
+* :Rename "new_file_name" (without quotes) command allows you to rename the current file
 * :Remove command allows you to delete the current file
+* Change two simple quotes to double quotes by typing c s ' " (in visual model
+  over the first simple quote) [ more info ](https://github.com/tpope/vim-surround)
 
 # File support
 * HAML
