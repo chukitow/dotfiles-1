@@ -7,8 +7,9 @@ call pathogen#infect()
 filetype plugin indent on
 set nocompatible
 
-" resize active split
-let &winheight = &lines * 8 / 10
+" Golden view
+let g:goldenview__enable_default_mapping = 0
+nmap <silent> <MY_KEY> <Plug>GoldenViewSplit
 
 " do not save swap files
 set noswapfile
@@ -33,6 +34,7 @@ Bundle 'grassdog/RemoveFile.vim'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'vim-scripts/GoldenView.Vim'
 
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h14
