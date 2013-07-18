@@ -1,9 +1,11 @@
 # My dotfiles
-> This is my folk of the dotfiles from Eduarbo (https://github.com/eduarbo), so thanks for sharing them man.
-> I wanted to keep it simple, functional, and styled.
+> This is my folk from the Eduarbo's dotfiles (https://github.com/eduarbo), so thanks for sharing them man.
+> I wanted to keep this simple, functional, and styled.
 
 # Install
     git clone https://github.com/tonatiuh/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && source bin/dotfiles
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    vim +BundleInstall +qall
 
 # Bash features
 * Up/ down arrow partial search in history
