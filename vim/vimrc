@@ -35,6 +35,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'vim-scripts/GoldenView.Vim'
+Bundle 'mileszs/ack.vim'
 
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h14
