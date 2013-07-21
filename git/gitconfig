@@ -17,6 +17,10 @@
   f = fetch
   mergecommit = merge --no-ff
   depintegration = !git push origin integration && git push integration HEAD:master
+  depstaging = !git push origin develop && git push staging HEAD:master
+  merged = branch --merged
+  unmerged = branch --no-merged
+  release = flow release
 
   # branch
   br = branch -v                     # branch (verbose)
@@ -35,7 +39,7 @@
   last = show --summary                 # diff last committed change
 
   # log
-  l = log --pretty=format:'%Cred%h%Creset %Cgreen(%cr) %C(bold blue)%an%Creset %s %C(yellow)%d' --abbrev-commit
+  l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   changelog = log --pretty=format:\" * %s\"
 

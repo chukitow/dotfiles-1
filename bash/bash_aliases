@@ -2,7 +2,7 @@
 
 # handy aliases
 alias top='top -o cpu'
-alias rserver='touch ~/.pow/restart.txt'
+alias kserv='touch ~/.pow/restart.txt'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
