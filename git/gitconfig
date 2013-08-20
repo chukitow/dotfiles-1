@@ -55,6 +55,7 @@
 
   # status
   st = status -sb                        # status
+	latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:short) %(refname:short)'
 
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset

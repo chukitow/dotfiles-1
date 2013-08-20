@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias rserver="touch ~/.pow/restart.txt"
+
 # handy aliases
 alias top='top -o cpu'
 alias kserv='touch ~/.pow/restart.txt'
@@ -65,3 +67,5 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+alias cat="pygmentize -g"

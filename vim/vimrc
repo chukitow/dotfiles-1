@@ -31,11 +31,11 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'danro/rename.vim'
 Bundle 'grassdog/RemoveFile.vim'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'vim-scripts/GoldenView.Vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/trailing-whitespace'
 
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h14
