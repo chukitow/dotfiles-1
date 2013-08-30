@@ -36,6 +36,9 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'vim-scripts/GoldenView.Vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/trailing-whitespace'
+Bundle 'pangloss/vim-javascript'
+Bundle 'kshenoy/vim-signature'
+Bundle 'godlygeek/tabular'
 
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h14
@@ -57,7 +60,7 @@ map 0 ^
 
 " Tabs like chrome
 map <D-t> :tabnew<CR>
-map <D-w> :tabclose!<CR>
+map <D-w> :tabclose<CR>
 
 " Insert New Line
 nnoremap <S-Enter> O<ESC> " awesome, inserts new line without going into
@@ -302,10 +305,6 @@ augroup ft_javascript
     au BufNewFile,BufRead jshintrc setlocal filetype=javascript
     au FileType javascript setlocal foldmethod=marker
     au FileType javascript setlocal foldmarker={,}
-    au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    au FileType javascript setlocal tabstop=4
-    au FileType javascript setlocal shiftwidth=4
-    au FileType javascript setlocal softtabstop=4
     au BufNewFile,BufRead *.js normal! zR
 
 augroup END

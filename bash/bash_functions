@@ -109,3 +109,11 @@ tell application "Reminders"
 end tell
 EOF
 }
+
+function git_remove_branch() {
+  git br -d $1
+  local_delete=$?
+  if [ "$local_delete" == 0 ]; then
+    git push origin :$1
+  fi
+}
