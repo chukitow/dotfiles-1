@@ -39,12 +39,14 @@ Bundle 'vim-scripts/trailing-whitespace'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kshenoy/vim-signature'
 Bundle 'godlygeek/tabular'
+Bundle 'Valloric/YouCompleteMe'
 
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h14
   set t_Co=256
 end
 
+set background=light
 colorscheme jellybeans
 set cursorline
 
