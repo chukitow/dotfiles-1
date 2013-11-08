@@ -5,6 +5,9 @@ alias rserver="touch ~/.pow/restart.txt"
 # handy aliases
 alias top='top -o cpu'
 alias kserv='touch ~/.pow/restart.txt'
+alias r='rails'
+alias be='bundle exec'
+alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs kill -9"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

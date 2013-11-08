@@ -21,6 +21,7 @@
   merged = branch --merged
   unmerged = branch --no-merged
   release = flow release
+  standup = !clear && git log --since '1 day ago' --no-merges --pretty=format':%C(yellow)%h %aN%n %B%n' --author $(git config --global --get user.email)
 
   # branch
   br = branch -v                     # branch (verbose)
@@ -75,6 +76,7 @@
   autocrlf = false
   editor = vim
   excludesfile = ~/.yadr/gitignore_global
+  pager = `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight | less
 [advice]
   statusHints = false
 [diff]

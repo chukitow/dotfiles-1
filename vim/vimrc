@@ -35,23 +35,39 @@ Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'vim-scripts/GoldenView.Vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'vim-scripts/trailing-whitespace'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kshenoy/vim-signature'
 Bundle 'godlygeek/tabular'
-Bundle 'Valloric/YouCompleteMe'
+
+" Line for marking 100 characters width, so that code under that limit can
+" fullfill that requirement
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80.\+', -1)
+endif
+
+" color theme
+Bundle '29decibel/codeschool-vim-theme'
 
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h14
   set t_Co=256
+  colorscheme jellybeans
+else
+  colorscheme ir_dark
 end
 
+
 set background=light
-colorscheme jellybeans
 set cursorline
 
 " Map semicolon to colon
 map ; :
+
+" Move tabs position (use ctrl+shif+ left_arrow | right_arrow)
+map <D-S-Left> :tabm-1 <Enter>
+map <D-S-Right> :tabm+1 <Enter>
 
 " Start of the line
 map 0 ^
@@ -62,17 +78,12 @@ map 0 ^
 
 " Tabs like chrome
 map <D-t> :tabnew<CR>
-map <D-w> :tabclose<CR>
 
 " Insert New Line
 nnoremap <S-Enter> O<ESC> " awesome, inserts new line without going into
 
 " insert mode
 nnoremap <Enter> o<ESC>
-
-" T-comment
-nmap <leader>c :TComment<CR>
-xmap <leader>c :TComment<CR>
 
 " NERDTree config
 let NERDTreeChDirMode=2
@@ -87,7 +98,7 @@ let g:NERDTreeHijackNetrw=0
 
 map <C-n> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_gui_startup = 0
- 
+
 augroup ps_nerdtree
   au!
 
@@ -104,12 +115,6 @@ set showbreak=»
 
 " Unhighlight the search
 nnoremap <silent> _ :nohl<CR>
-
-" resize current buffer by +/- 5
-nnoremap <C-left> :vertical resize -5<cr>
-nnoremap <C-down> :resize +5<cr>
-nnoremap <C-up> :resize -5<cr>
-nnoremap <C-right> :vertical resize +5<cr>
 
 " scss files read as css
 au BufNewFile,BufRead *.scss setlocal filetype=sass
@@ -137,7 +142,6 @@ set encoding=utf-8
 set modelines=0
 set autoindent                  " Automatically set the indent of a new line (local to buffer)
 set showmode                    " Show current mode down the bottom
-set showcmd                     " Show incomplete cmds down the bottom
 set hidden
 set visualbell                  " No sounds
 set ttyfast                     " Improves redrawing
@@ -271,7 +275,6 @@ augroup ft_css
 
     au Filetype sass,scss,less,css setlocal foldmethod=marker
     au Filetype sass,scss,less,css setlocal foldmarker={,}
-    au Filetype sass,scss,less,css setlocal omnifunc=csscomplete#CompleteCSS
     au Filetype sass,scss,less,css setlocal iskeyword+=-
 
 augroup END
@@ -288,8 +291,6 @@ augroup ft_html
     setlocal foldlevel=99
     au BufNewFile,BufRead *.html setlocal filetype=html
     au FileType html setlocal foldmethod=manual
-    au FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-    au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
     " Underscore tags
@@ -318,7 +319,6 @@ augroup ft_markdown
 
     au BufNewFile,BufRead *.m*down setlocal filetype=markdown
     au BufNewFile,BufRead *.md normal! zR
-    au FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
     au FileType markdown setlocal spell
 
     " Use <localleader>1/2/3 to add headings.
@@ -367,4 +367,10 @@ else
     set mouse=a
 endif
 
+
 " }}}
+
+"One way to make sure to remove all trailing whitespace in a file is to set an
+"autocmd in your .vimrc file. Everytime the user issue a :w command, Vim will
+"automatically remove all trailing whitespace before saving.
+autocmd BufWritePre * :%s/\s\+$//e
