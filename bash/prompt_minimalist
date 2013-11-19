@@ -28,7 +28,7 @@ function prompt {
   local BRANCH="\$(git branch 2>/dev/null | grep -e '\*' | sed 's/^..\(.*\)/\\$BGGREEN \1/')"
 
 
-  export PS1="\n\n$BLACK$BRANCH $BGCYAN \u / tonatiuh $RESET$WHITE \w \n\n$YELLOW $RESET"
+  export PS1="\n\n$BLACK$BRANCH $RESET$WHITE \w \n\n$YELLOW $RESET"
 }
 
 prompt

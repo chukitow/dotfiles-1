@@ -76,7 +76,7 @@
   autocrlf = false
   editor = vim
   excludesfile = ~/.yadr/gitignore_global
-  pager = `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight | less
+  pager = /usr/local/git/contrib/diff-highlight | less
 [advice]
   statusHints = false
 [diff]
