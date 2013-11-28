@@ -3,11 +3,17 @@
 alias rserver="touch ~/.pow/restart.txt"
 
 # handy aliases
+alias g=git
 alias top='top -o cpu'
 alias kserv='touch ~/.pow/restart.txt'
 alias r='rails'
 alias be='bundle exec'
 alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs kill -9"
+
+
+# this should be "ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl"
+# but for some reason it doesn't work with sublime3
+alias s='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

@@ -374,3 +374,5 @@ endif
 "autocmd in your .vimrc file. Everytime the user issue a :w command, Vim will
 "automatically remove all trailing whitespace before saving.
 autocmd BufWritePre * :%s/\s\+$//e
+
+let g:ruby_path = system('rvm current')

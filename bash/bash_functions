@@ -117,3 +117,11 @@ function git_remove_branch() {
     git push origin :$1
   fi
 }
+
+function git_start_feature() {
+  story_title=$1
+  story_title=${story_title// /-}
+  story_title=${story_title//[.,]/}
+
+  git checkout -b feature/$story_title
+}
