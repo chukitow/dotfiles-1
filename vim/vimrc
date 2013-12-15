@@ -50,17 +50,13 @@ endif
 imap <Tab> <C-P>
 
 " For setting lineheight
-set lsp=3
+set lsp=4
 
+colorscheme Tomorrow
 if has("gui_macvim") && has("gui_running")
-  set guifont=DejaVu\ Sans\ Mono:h14
+  set guifont=DejaVu\ Sans\ Mono:h13
   set t_Co=256
-  colorscheme Tomorrow
-else
-  colorscheme Tomorrow
 end
-
-set background=light
 
 " Map semicolon to colon
 map ; :
