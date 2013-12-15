@@ -26,7 +26,6 @@ Bundle 'tpope/vim-endwise'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'vim-scripts/tComment'
 Bundle 'tsaleh/vim-matchit'
-Bundle 'sjl/gundo.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'danro/rename.vim'
@@ -34,12 +33,12 @@ Bundle 'grassdog/RemoveFile.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'vim-scripts/GoldenView.Vim'
-Bundle 'mileszs/ack.vim'
 Bundle 'pangloss/vim-javascript'
-Bundle 'kshenoy/vim-signature'
+" Bundle 'kshenoy/vim-signature' for marks
 Bundle 'godlygeek/tabular'
+Bundle 'bling/vim-airline'
 
-" Line for marking 100 characters width, so that code under that limit can
+" Line for marking 80 characters width, so that code under that limit can
 " fullfill that requirement
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -47,20 +46,21 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80.\+', -1)
 endif
 
-" color theme
-Bundle '29decibel/codeschool-vim-theme'
+" Autocomplete with tab
+imap <Tab> <C-P>
+
+" For setting lineheight
+set lsp=3
 
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h14
   set t_Co=256
-  colorscheme jellybeans
+  colorscheme Tomorrow
 else
-  colorscheme ir_dark
+  colorscheme Tomorrow
 end
 
-
 set background=light
-set cursorline
 
 " Map semicolon to colon
 map ; :
@@ -150,8 +150,8 @@ set backspace=indent,eol,start  " Allow backspace in insert mode
 set number                      " Line numbers are good
 set laststatus=2                " Always show the status line
 set history=1000                " Store lots of :cmdline history
-set list                        " Hide invisible chars
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+" set list                        " Hide invisible chars
+" set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set shell=/bin/bash\ --login
 set matchtime=3                 " how many tenths of a second to blink
 set showbreak=↪
@@ -375,4 +375,10 @@ endif
 "automatically remove all trailing whitespace before saving.
 autocmd BufWritePre * :%s/\s\+$//e
 
+if version >= 702
+  autocmd BufWinLeave * call clearmatches()
+endif
+
 let g:ruby_path = system('rvm current')
+
+syntax on
