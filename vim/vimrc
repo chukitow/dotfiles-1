@@ -47,12 +47,21 @@ else
 endif
 
 " Autocomplete with tab
-imap <Tab> <C-P>
+function! InsertTabOrAutocomplete()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+
+imap <tab> <c-r>=InsertTabOrAutocomplete()<cr>
 
 " For setting lineheight
 set lsp=4
 
-colorscheme Tomorrow
+colorscheme jellybeans
 if has("gui_macvim") && has("gui_running")
   set guifont=DejaVu\ Sans\ Mono:h13
   set t_Co=256

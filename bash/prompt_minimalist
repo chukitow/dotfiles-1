@@ -2,15 +2,15 @@
 # Prompt
 
 function prompt {
-  local BGBLACK="\[\033[40m\]"
-  local BGRED="\[\033[41m\]"
+  local BGBLACK="[\033[40m\]"
+  local BGRED="[\033[41m\]"
   local BGGREEN="[\033[42m\]"
-  local BGYELLOW="\[\033[43m\]"
-  local BGBLUE="\[\033[44m\]"
-  local BGMAGENTA="\[\033[45m\]"
-  local BGCYAN="\[\033[46m\]"
-  local BGWHITE="\[\033[47m\]"
-  local BGTRANS="\[\033[49m\]"
+  local BGYELLOW="[\033[43m\]"
+  local BGBLUE="[\033[44m\]"
+  local BGMAGENTA="[\033[45m\]"
+  local BGCYAN="[\033[46m\]"
+  local BGWHITE="[\033[47m\]"
+  local BGTRANS="[\033[49m\]"
 
   local BLACK="\[\033[30m\]"
   local RED="\[\033[31m\]"
@@ -28,7 +28,7 @@ function prompt {
   local BRANCH="\$(git branch 2>/dev/null | grep -e '\*' | sed 's/^..\(.*\)/\\$BGGREEN \1/')"
 
 
-  export PS1="\n\n$BLACK$BRANCH $RESET$WHITE \w \n\n$YELLOW $RESET"
+  export PS1="\n\n$WHITE$BRANCH $RESET$WHITE \w \n\n$YELLOW $RESET"
 }
 
 prompt
