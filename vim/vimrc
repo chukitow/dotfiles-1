@@ -36,7 +36,13 @@ Bundle 'vim-scripts/GoldenView.Vim'
 Bundle 'pangloss/vim-javascript'
 " Bundle 'kshenoy/vim-signature' for marks
 Bundle 'godlygeek/tabular'
-Bundle 'bling/vim-airline'
+
+" Gists
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
+" Align by the equal sign
+map <C-a> :Tab /=<Enter>
 
 " Line for marking 80 characters width, so that code under that limit can
 " fullfill that requirement
@@ -79,7 +85,7 @@ map 0 ^
 
 " jj instead of the scape key
 :imap jj <Esc>
-:imap jk <Esc> :w <Enter>
+:imap jk <Esc>:w<Enter>
 
 " Tabs like chrome
 map <D-t> :tabnew<CR>

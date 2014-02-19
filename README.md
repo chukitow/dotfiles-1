@@ -28,6 +28,7 @@
 * :Remove command allows you to delete the current file
 * Change two simple quotes to double quotes by typing c s ' " (in visual model
   over the first simple quote) [ more info ](https://github.com/tpope/vim-surround)
+* Code autoalignation by the equal sign ("="), select the code in visual mode, then press Ctrl+a
 
 # File support
 * HAML
@@ -52,10 +53,10 @@
 # Vim used theme
 > Jelly beans
 
-![vim theme] (http://oi43.tinypic.com/50l6oh.jpg)
+![vim] (http://oi57.tinypic.com/1zg57rr.jpg)
 
 # Bash profile
-![bash profile] (http://oi44.tinypic.com/2q20k84.jpg)
+![bash profile] (http://oi58.tinypic.com/wkqomr.jpg)
 
-# Git log style
-![git log] (http://oi44.tinypic.com/29xjkut.jpg)
+# Git log
+![git log] (http://oi61.tinypic.com/29vdted.jpg)

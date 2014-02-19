@@ -89,6 +89,8 @@
   enabled = false
 [user]
 	name = Tonatiuh Nunez
-	email = tonatiuhn@hotmail.es
+	email = tonatiuhnb@gmail.com
 [mergetool]
 	keepBackup = false
+[github]
+	user = tonatiuh

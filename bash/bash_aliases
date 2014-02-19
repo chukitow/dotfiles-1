@@ -7,8 +7,10 @@ alias g=git
 alias top='top -o cpu'
 alias kserv='touch ~/.pow/restart.txt'
 alias r='rails'
+alias gd='guard'
 alias be='bundle exec'
 alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs kill -9"
+alias gx='gitx'
 
 
 # this should be "ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl"
