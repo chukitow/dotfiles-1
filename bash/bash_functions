@@ -125,3 +125,7 @@ function git_start_feature() {
 
   git checkout -b feature/$story_title
 }
+
+function nametab() {
+  echo -ne "\033]0;"$@"\007"
+}

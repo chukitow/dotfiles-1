@@ -328,7 +328,8 @@ augroup END
 augroup ft_markdown
     au!
 
-    au BufNewFile,BufRead *.m*down setlocal filetype=markdown
+    au BufNewFile,BufRead *.m*down setlocal filetype=mkd
+    au BufNewFile,BufRead *.txt setlocal filetype=mkd
     au BufNewFile,BufRead *.md normal! zR
     au FileType markdown setlocal spell
 

@@ -34,6 +34,7 @@ source "$DOTFILES/bash/prompt_minimalist"
 
 bind -f $DOTFILES/bash/bash_bindings
 
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -47,7 +48,7 @@ shopt -s histappend >/dev/null 2>&1
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-# no duplicates in bash history and ignore same sucessive entries. 
+# no duplicates in bash history and ignore same sucessive entries.
 set match-hidden-files off
 set page-completions off
 # set completion-query-items 350
@@ -65,3 +66,5 @@ complete -o default -o nospace -F _git g
 if [ -f ~/.git-completion.bash  ]; then
   . ~/.git-completion.bash
 fi
+
+export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'

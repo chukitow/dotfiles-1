@@ -15,6 +15,7 @@
   softback = reset --soft HEAD^
   addp = add --patch           # stage commits chunk by chunk
   f = fetch
+  r = reset
   mergecommit = merge --no-ff
   depintegration = !git push origin integration && git push integration HEAD:master
   depstaging = !git push origin develop && git push staging HEAD:master
@@ -50,9 +51,6 @@
   # rebase
   rc = rebase --continue            # continue rebase
   rs = rebase --skip                # skip rebase
-
-  # remote
-  r = remote -v                     # show remotes (verbose)
 
   # status
   st = status -sb                        # status
