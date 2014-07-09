@@ -11,6 +11,7 @@ alias gd='guard'
 alias be='bundle exec'
 alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs kill -9"
 alias gx='gitx'
+alias rc='rails console'
 
 
 # this should be "ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl"
@@ -60,7 +61,6 @@ alias -- -='cd -'
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias j="jump"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

@@ -1,0 +1,9 @@
+#!/usr/local/bin/bash
+
+story_title=$1
+story_title=${story_title,,} # downcase string
+story_title=${story_title// /-} # replace spaces by dashes
+story_title=${story_title//\//-} # replace slashes by dashes
+story_title=${story_title//[.,:]/} # remove punctuation characters
+
+git checkout -b hotfix/$story_title

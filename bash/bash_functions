@@ -110,20 +110,12 @@ end tell
 EOF
 }
 
-function git_remove_branch() {
+function git-remove_branch() {
   git br -d $1
   local_delete=$?
   if [ "$local_delete" == 0 ]; then
     git push origin :$1
   fi
-}
-
-function git_start_feature() {
-  story_title=$1
-  story_title=${story_title// /-}
-  story_title=${story_title//[.,]/}
-
-  git checkout -b feature/$story_title
 }
 
 function nametab() {

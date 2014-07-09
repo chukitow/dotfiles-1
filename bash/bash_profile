@@ -11,6 +11,7 @@ $HOME/bin:\
 /usr/local/bin:\
 /usr/local/share/python:\
 /usr/local/share/npm/bin:\
+/Users/tonatiuh/.dotfiles/git/extensions:\
 $HOME/.rbenv/bin:\
 /usr/local/heroku/bin:/usr/local/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/tonatiuh/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/Users/tonatiuh/.gh-dotfiles/bin \
 $PATH:\
@@ -68,3 +69,6 @@ if [ -f ~/.git-completion.bash  ]; then
 fi
 
 export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
+
+# load direnv https://github.com/zimbatm/direnv
+eval "$(direnv hook bash)"
