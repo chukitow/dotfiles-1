@@ -40,13 +40,15 @@ alias top_commands="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1
 
 # vim alias
 alias va="vagrant"
-alias v="mvim"
-alias mvimt="mvim --remote-tab"
-alias vt="mvim --remote-tab ."
-alias upvim="git submodule foreach git pull origin master"
-alias gv="gvim"
-alias sv="sudo vim"
-alias sgv="sudo gvim"
+alias v="open -a VimR"
+# alias v="mvim"
+# alias mvimt="mvim --remote-tab"
+# alias vt="mvim -p --remote-tab-silent"
+# alias upvim="git submodule foreach git pull origin master"
+# alias gv="gvim"
+# alias sv="sudo vim"
+# alias sgv="sudo gvim"
+alias vim="/usr/local/bin/vim"
 
 # node alias
 alias n="node"
