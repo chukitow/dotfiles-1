@@ -70,8 +70,8 @@ set noswapfile
 " Align by the equal sign
 map <C-a> :Tab /=<Enter>
 
-" Maximize current split as possible
-map <S-D-Enter> <C-W>_<C-W><Bar>
+" Yank to clipboard
+map <S-y> "+y
 
 " Line for marking 80 characters width, so that code under that limit can
 " fullfill that requirement
@@ -436,14 +436,44 @@ if version >= 702
   autocmd BufWinLeave * call clearmatches()
 endif
 
-let g:ruby_path = system('rvm current')
-
 syntax on
 
+" to make possible <C-q> to reach vim (otherwise it's captured by iterm)
+silent !stty -ixon > /dev/null 2>/dev/null
 
-" Close all Ruby comments
+" fold all Ruby comments of more than 1 line
 autocmd BufNewFile,BufRead *.rb call SetRubyFoldFormat()
 function SetRubyFoldFormat()
   set foldmethod=expr
   set foldexpr=getline(v:lnum)=~'^\\s*#'
 endfunction
+
+" fish file detection
+au BufNewFile,BufRead *.fish setlocal filetype=fish
+
+" find current file under NERDTree
+map <C-f> :NERDTreeFind <Enter>
+
+" to make colors display right when tmux
+set term=screen-256color
+
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+if exists('$ITERM_PROFILE')
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+end
+
+" to yank directly from vim to system clipboard (macOSX)
+set clipboard=unnamed
