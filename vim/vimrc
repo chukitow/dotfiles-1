@@ -14,15 +14,17 @@ Plugin 'gmarik/Vundle.vim'
 " Nerdtree
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
+
 " Fuzzy files finder
 Bundle 'kien/ctrlp.vim'
-" Autoclose ',(,etc
-Bundle 'jiangmiao/auto-pairs.git'
+Bundle 'DavidEGx/ctrlp-smarttabs'
+
+" Autoclose quotes, brackets, parenthesis, etc
+Bundle 'jiangmiao/auto-pairs'
+
 Bundle 'gmarik/vundle'
 " Commenting with gcc keys
 Bundle 'vim-scripts/tComment'
-" Enhance match % of VIM
-Bundle 'tsaleh/vim-matchit'
 " Rename current file (buffer) with :Rename
 Bundle 'danro/rename.vim'
 " Remove current file (buffer) with :Remove
@@ -39,8 +41,15 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 " Syntax
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'plasticboy/vim-markdown'
+" Very complete markdown syntax
+Bundle 'gabrielelana/vim-markdown'
 Bundle 'pangloss/vim-javascript'
+Bundle 'vim-scripts/fish-syntax'
+" Extra colorschemes
+Bundle 'tomasr/molokai'
+" Ag for searchs
+Bundle 'rking/ag.vim'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -48,6 +57,12 @@ filetype plugin indent on
 " Golden view
 let g:goldenview__enable_default_mapping = 0
 nmap <silent> <MY_KEY> <Plug>GoldenViewSplit
+
+" replace current buffer with a new one
+map <C-e> :enew <Enter>
+
+" Ack config
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " do not save swap files
 set noswapfile
@@ -81,9 +96,10 @@ imap <tab> <c-r>=InsertTabOrAutocomplete()<cr>
 " For setting lineheight
 set lsp=4
 
-colorscheme monokai
+colorscheme Tomorrow
+set guifont=Droid\ Sans\ Mono:h14
+
 if has("gui_macvim") && has("gui_running")
-  set guifont=DejaVu\ Sans\ Mono:h13
   set t_Co=256
 end
 
@@ -117,6 +133,7 @@ nnoremap <S-Enter> O<ESC> " awesome, inserts new line without going into
 nnoremap <Enter> o<ESC>
 
 " NERDTree config
+"
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.pyc$', '\.swp$', '\.egg-info$', '^dist$', '^build$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\~$']
@@ -166,6 +183,14 @@ autocmd InsertEnter,InsertLeave * set cul!
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
 
 " Basic options ----------------------------------------------------------- {{{
 
@@ -348,8 +373,8 @@ augroup END
 augroup ft_markdown
     au!
 
-    au BufNewFile,BufRead *.m*down setlocal filetype=mkd
-    au BufNewFile,BufRead *.txt setlocal filetype=mkd
+    au BufNewFile,BufRead *.txt setlocal filetype=markdown
+    au BufNewFile,BufRead *.md setlocal filetype=markdown
     au BufNewFile,BufRead *.md normal! zR
     au FileType markdown setlocal spell
 
