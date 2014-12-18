@@ -84,3 +84,6 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 alias cat="pygmentize -g"
 alias egg="open /Applications/Eggscellent.app"
+
+# tmux alias
+alias to='tmux attach -t'

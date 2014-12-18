@@ -1,6 +1,5 @@
 " Fork by Tonatiuh Nunez <tonatiuhnb@gmail.com> (https://github.com/tonatiuh/dotfiles-1/tree/master/vim)
-" This is my fork of the original repo from Eduardo Ruiz <eduarbo@gmail.com> (https://github.com/eduarbo/dotfiles/tree/master/vim)
-"
+" This is my fork of the original repo from Eduardo Ruiz <eduarbo@gmail.com> (https://github.com/eduarbo/dotfiles/tree/master/vim) "
 " Basic
 set nocompatible
 filetype off
@@ -14,6 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 " Nerdtree
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
+
+nmap <Tab> :CtrlPSmartTabs<CR>
 
 " Fuzzy files finder
 Bundle 'kien/ctrlp.vim'
@@ -49,7 +50,6 @@ Bundle 'vim-scripts/fish-syntax'
 Bundle 'tomasr/molokai'
 " Ag for searchs
 Bundle 'rking/ag.vim'
-
 
 call vundle#end()
 filetype plugin indent on
@@ -96,7 +96,7 @@ imap <tab> <c-r>=InsertTabOrAutocomplete()<cr>
 " For setting lineheight
 set lsp=4
 
-colorscheme Tomorrow
+colorscheme Molokai
 set guifont=Droid\ Sans\ Mono:h14
 
 if has("gui_macvim") && has("gui_running")
@@ -107,14 +107,16 @@ end
 map ; :
 
 " Tab navigation
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
+nnoremap tl  :tabnext<CR>
+nnoremap tj  :tabfirst<CR>
+nnoremap tk  :tablast<CR>
+nnoremap th  :tabprev<CR>
 
 " Move tabs position (use ctrl+shif+ left_arrow | right_arrow)
-map <D-S-Left> :tabm-1 <Enter>
-map <D-S-Right> :tabm+1 <Enter>
+nnoremap <C-h> :tabprev<CR>
+nnoremap <C-l> :tabnext<CR>
+" nnoremap <C-l> :tabm+1<CR>
+" nnoremap <C-h> :tabm-1<CR>
 
 " Start of the line
 map 0 ^
@@ -305,10 +307,10 @@ set virtualedit+=block
 " Directional Keys {{{
 
 " Easy buffer navigation
-noremap <C-h> <C-w>h
+" noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+" noremap <C-l> <C-w>l
 
 noremap <leader>v <C-w>v
 noremap <leader>h <C-w>s
@@ -475,5 +477,30 @@ if exists('$ITERM_PROFILE')
   endif
 end
 
-" to yank directly from vim to system clipboard (macOSX)
-set clipboard=unnamed
+set showtabline=0
+
+
+" for tmux to automatically set paste and nopaste mode at the time pasting (as
+" happens in VIM UI)
+
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
