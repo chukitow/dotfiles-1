@@ -27,7 +27,7 @@
   standup = !clear && git log --since '1 day ago' --no-merges --pretty=format':%C(yellow)%h %aN%n %B%n' --author $(git config --global --get user.email)
 
   # branch
-  br = branch -v                     # branch (verbose)
+  br = branch
 
   # commit
   ci = commit -m                       # commit
@@ -40,7 +40,7 @@
   # diff
   df = diff                          # diff unstaged changes
   dfc = diff --cached                # diff staged changes
-  last = show --summary                 # diff last committed change
+  last = log --name-status HEAD^..HEAD                 # diff last committed change
 
   # log
   l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

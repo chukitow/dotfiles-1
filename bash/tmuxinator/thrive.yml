@@ -24,9 +24,13 @@ windows:
       panes:
         - "cd ~/projects/btsteps-authorization-server/ && spring rails s"
         - "spring rails s -p 3001"
-  - shell: spring rails c
   - editor:
       layout: even-horizontal
       panes:
         - vim
         - guard
+  - shell:
+      layout: even-horizontal
+      panes:
+        - ''
+        - spring rails c

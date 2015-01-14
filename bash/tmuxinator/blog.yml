@@ -1,7 +1,7 @@
-# ~/.tmuxinator/thrive.yml
+# ~/.tmuxinator/blog.yml
 
-name: thrive_auth
-root: ~/projects/btsteps-authorization-server
+name: blog
+root: ~/projects/tonatiuh.github.io/
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,13 +19,9 @@ root: ~/projects/btsteps-authorization-server
 # tmux_command: byobu
 
 windows:
+  - server: jekyll serve -w
   - editor:
       layout: even-horizontal
       panes:
         - vim
-        - guard
-  - shell:
-      layout: even-horizontal
-      panes:
         - ''
-        - spring rails c

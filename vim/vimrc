@@ -59,7 +59,7 @@ let g:goldenview__enable_default_mapping = 0
 nmap <silent> <MY_KEY> <Plug>GoldenViewSplit
 
 " replace current buffer with a new one
-map <C-e> :enew <Enter>
+"map <C-e> :enew <Enter>
 
 " Ack config
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -96,7 +96,7 @@ imap <tab> <c-r>=InsertTabOrAutocomplete()<cr>
 " For setting lineheight
 set lsp=4
 
-colorscheme Molokai
+colorscheme Tomorrow
 set guifont=Droid\ Sans\ Mono:h14
 
 if has("gui_macvim") && has("gui_running")
@@ -504,3 +504,6 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" list methods/functions
+nnoremap <C-g> :CtrlPBufTag<CR>
