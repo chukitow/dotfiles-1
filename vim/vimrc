@@ -14,7 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 
-nmap <Tab> :CtrlPSmartTabs<CR>
+nmap <C-i> :CtrlPSmartTabs<CR>
 
 " Fuzzy files finder
 Bundle 'kien/ctrlp.vim'
@@ -441,7 +441,7 @@ endif
 syntax on
 
 " to make possible <C-q> to reach vim (otherwise it's captured by iterm)
-silent !stty -ixon > /dev/null 2>/dev/null
+" silent !stty -ixon > /dev/null 2>/dev/null
 
 " fold all Ruby comments of more than 1 line
 autocmd BufNewFile,BufRead *.rb call SetRubyFoldFormat()
@@ -456,19 +456,14 @@ au BufNewFile,BufRead *.fish setlocal filetype=fish
 " find current file under NERDTree
 map <C-f> :NERDTreeFind <Enter>
 
-" to make colors display right when tmux
-set term=screen-256color
-
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
+" Make cursor shape automatically change depending on mode in vim and set *term*
+" value according to tmux
 
 if exists('$ITERM_PROFILE')
   if exists('$TMUX')
+    " to make colors display right when tmux
+    set term=screen-256color
+
     let &t_SI = "\<Esc>[3 q"
     let &t_EI = "\<Esc>[0 q"
   else

@@ -2,6 +2,8 @@
 
 alias rserver="touch ~/.pow/restart.txt"
 
+alias dclear="clear && printf '\e[3J'"
+
 # handy aliases
 alias g=git
 alias top='top -o cpu'
