@@ -1,69 +1,92 @@
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+  ignore = dirty
 [submodule "vim/bundle/badwolf"]
 	path = vim/bundle/badwolf
 	url = git@github.com:sjl/badwolf.git
+  ignore = dirty
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = git@github.com:kien/ctrlp.vim.git
+  ignore = dirty
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+  ignore = dirty
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
 	url = git@github.com:sjl/gundo.vim.git
+  ignore = dirty
 [submodule "vim/bundle/javascript"]
 	path = vim/bundle/javascript
 	url = git@github.com:pangloss/vim-javascript.git
+  ignore = dirty
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = git@github.com:tpope/vim-markdown.git
+  ignore = dirty
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
+  ignore = dirty
 [submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = git@github.com:tpope/vim-repeat.git
+  ignore = dirty
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = git@github.com:ervandew/supertab.git
+  ignore = dirty
 [submodule "vim/bundle/jade"]
 	path = vim/bundle/jade
 	url = git@github.com:digitaltoad/vim-jade.git
+  ignore = dirty
 [submodule "vim/bundle/coffeescript"]
 	path = vim/bundle/coffeescript
 	url = git@github.com:kchmck/vim-coffee-script.git
+  ignore = dirty
 [submodule "vim/bundle/typescript"]
 	path = vim/bundle/typescript
 	url = git@github.com:leafgarland/typescript-vim.git
+  ignore = dirty
 [submodule "vim/bundle/ruby"]
 	path = vim/bundle/ruby
 	url = git@github.com:vim-ruby/vim-ruby.git
+  ignore = dirty
 [submodule "vim/bundle/rails"]
 	path = vim/bundle/rails
 	url = git@github.com:tpope/vim-rails.git
+  ignore = dirty
 [submodule "vim/bundle/commentary"]
 	path = vim/bundle/commentary
 	url = git@github.com:tpope/vim-commentary.git
+  ignore = dirty
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git@github.com:Lokaltog/vim-powerline.git
+  ignore = dirty
 [submodule "vim/bundle/auto-pairs"]
 	path = vim/bundle/auto-pairs
 	url = git@github.com:vim-scripts/Auto-Pairs.git
+  ignore = dirty
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips.git
+  ignore = dirty
 [submodule "vim/bundle/ultisnips-snippets"]
 	path = vim/bundle/ultisnips-snippets
 	url = git@github.com:eduarbo/ultisnips-snippets.git
+  ignore = dirty
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git@github.com:scrooloose/syntastic.git
+  ignore = dirty
 [submodule "vim/bundle/vim-indent-html"]
 	path = vim/bundle/vim-indent-html
 	url = git@github.com:bitfyre/vim-indent-html.git
+  ignore = dirty
 [submodule "vim/bundle/handlebars"]
 	path = vim/bundle/handlebars
 	url = git@github.com:nono/vim-handlebars.git
+  ignore = dirty
