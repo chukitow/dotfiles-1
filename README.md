@@ -1,5 +1,5 @@
 # My dotfiles
-> This is my folk from the Eduarbo's dotfiles (https://github.com/eduarbo), so thanks for sharing them man.
+> This is my fork from the Eduarbo's dotfiles (https://github.com/eduarbo), so thanks for sharing them man.
 > I wanted to keep this simple, functional, and styled.
 
 # Install

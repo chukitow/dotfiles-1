@@ -27,10 +27,10 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - vim
+        - vim -S
         - guard
   - shell:
       layout: even-horizontal
       panes:
-        - ''
+        - mongod --fork --syslog
         - spring rails c

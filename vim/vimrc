@@ -10,9 +10,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" Nerdtree
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+
+" Nerdtree, I used to use Nerdtree, but I found I don't need it https://medium.com/@mozhuuuuu/vimmers-you-dont-need-nerdtree-18f627b561c3
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'jistr/vim-nerdtree-tabs'
 
 nmap <C-i> :CtrlPSmartTabs<CR>
 
@@ -50,6 +52,8 @@ Bundle 'vim-scripts/fish-syntax'
 Bundle 'tomasr/molokai'
 " Ag for searchs
 Bundle 'rking/ag.vim'
+" Vim session persistent
+Bundle 'tpope/vim-obsession'
 
 call vundle#end()
 filetype plugin indent on
@@ -96,7 +100,7 @@ imap <tab> <c-r>=InsertTabOrAutocomplete()<cr>
 " For setting lineheight
 set lsp=4
 
-colorscheme Tomorrow
+colorscheme dracula
 set guifont=Droid\ Sans\ Mono:h14
 
 if has("gui_macvim") && has("gui_running")
@@ -136,32 +140,36 @@ nnoremap <Enter> o<ESC>
 
 " NERDTree config
 "
-let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.pyc$', '\.swp$', '\.egg-info$', '^dist$', '^build$']
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\~$']
-let NERDTreeShowBookmarks=0
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDChristmasTree = 1
-let NERDTreeChDirMode = 2
-let g:NERDTreeHijackNetrw=0
+" let NERDTreeChDirMode=2
+" let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.pyc$', '\.swp$', '\.egg-info$', '^dist$', '^build$']
+" let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\~$']
+" let NERDTreeShowBookmarks=0
+" let NERDTreeMinimalUI = 1
+" let NERDTreeDirArrows = 1
+" let NERDChristmasTree = 1
+" let NERDTreeChDirMode = 2
+" let g:NERDTreeHijackNetrw=0
 
-map <C-n> :NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_gui_startup = 0
+" map <C-n> :NERDTreeTabsToggle<CR>
+" let g:nerdtree_tabs_open_on_gui_startup = 0
 
-augroup ps_nerdtree
-  au!
-
-  au Filetype nerdtree setlocal nolist
-  au Filetype nerdtree nnoremap <buffer> K :q<cr>
-augroup END
+" augroup ps_nerdtree
+"   au!
+"
+"   au Filetype nerdtree setlocal nolist
+"   au Filetype nerdtree nnoremap <buffer> K :q<cr>
+" augroup END
 
 " Ignore files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " Wrap
-set wrap linebreak nolist
-set showbreak=»
+" set wrap linebreak nolist
+  " wrap lines automatically at character 80, use gq to apply it if not applied
+  " automatically in a paragraph
+  set tw=79
+  set formatoptions+=t
+set showbreak=↪
 
 " Unhighlight the search
 nnoremap <silent> _ :nohl<CR>
@@ -212,14 +220,12 @@ set history=1000                " Store lots of :cmdline history
 " set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set shell=/bin/bash\ --login
 set matchtime=3                 " how many tenths of a second to blink
-set showbreak=↪
 set splitbelow
 set splitright
 set autowrite
 set autoread                    " Reload files changed outside vim
 set shiftround                  " When at 3 spaces, and I hit > ... go to 4, not 5
 set title
-set linebreak
 set pastetoggle=<F2>            " Use it for pasting large amounts of text into Vim, disabling all kinds of smartness and just pasting a whole buffer of text
 
 if v:version > 702
@@ -454,7 +460,7 @@ endfunction
 au BufNewFile,BufRead *.fish setlocal filetype=fish
 
 " find current file under NERDTree
-map <C-f> :NERDTreeFind <Enter>
+" map <C-f> :NERDTreeFind <Enter>
 
 " Make cursor shape automatically change depending on mode in vim and set *term*
 " value according to tmux
@@ -462,7 +468,7 @@ map <C-f> :NERDTreeFind <Enter>
 if exists('$ITERM_PROFILE')
   if exists('$TMUX')
     " to make colors display right when tmux
-    set term=screen-256color
+    " set term=screen-256color
 
     let &t_SI = "\<Esc>[3 q"
     let &t_EI = "\<Esc>[0 q"
@@ -502,3 +508,10 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " list methods/functions
 nnoremap <C-g> :CtrlPBufTag<CR>
+
+" copy current file path to clipboard
+nmap ,cl :let @*=expand("%")<CR>
+
+" open file explorer
+nmap <C-e> :Ex<CR>
+nmap <C-x> :x<CR>

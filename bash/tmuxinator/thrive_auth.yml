@@ -22,7 +22,7 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - vim
+        - vim -S
         - guard
   - shell:
       layout: even-horizontal

@@ -23,5 +23,5 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - vim
+        - vim -S
         - ''

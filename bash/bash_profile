@@ -4,7 +4,7 @@ DOTFILES=$HOME/.dotfiles
 #test
 
 # Bash completion (installed via Homebrew; source after `brew` is added to PATH)
-[ -r "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
+[ -r "$(brew --prefix)/Cellar/bash-completion/1.3/etc/bash_completion.d/git-completion.bash" ] && source "$(brew --prefix)/Cellar/bash-completion/1.3/etc/bash_completion.d/git-completion.bash"
 
 export PATH="\
 $HOME/bin:\
@@ -16,6 +16,8 @@ $HOME/.rbenv/bin:\
 /usr/local/heroku/bin:/usr/local/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/tonatiuh/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/tonatiuh/.rvm/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p125-perf/bin:/usr/bin:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p448@thrive/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/Users/tonatiuh/.gh-dotfiles/bin \
 $PATH:\
 /Users/tonatiuh/.rvm/rubies/ruby-1.9.3-p125-perf/bin/ruby:/Users/tonatiuh/.rvm/gems/ruby-1.9.3-p125-perf/bin:\
+/usr/local/mongo/bin:\
+/usr/bin/chromedriver:\
 "&>/dev/null
 
 source /Users/tonatiuh/.rvm/scripts/rvm
@@ -71,4 +73,4 @@ fi
 export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
 
 # load direnv https://github.com/zimbatm/direnv
-eval "$(direnv hook bash)"
+# eval "$(direvn hook bash)"
